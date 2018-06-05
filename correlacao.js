@@ -1,4 +1,4 @@
-let Pessoa = {
+﻿let Pessoa = {
   hobbies: ["Tocar violao","programar", "jogar", "ler", "passear com o cachorro"],
   lobisomem: true
 };
@@ -11,18 +11,18 @@ let catalogoPessoas =[
   {hobbies: ["jogar", "estudar"], lobisomen: true}, 
   Pessoa];
 
-let tabelar = function(habito, Pessoas){
+function tabelar(habito, Pessoas){
   tabela = [0,0,0,0];
-	for(amostra of Pessoas){
+	Pessoas.forEach(function(amostra){
       let cont=0;
       if (amostra.hobbies.includes(habito)) cont++;
       if (amostra.lobisomen) cont+=2;
       tabela[cont]++;
-    }
+    });
   return tabela;
 }
 
-let correlacao = function(tabela){
+function correlacao(tabela){
 	return (tabela[0]*tabela[3]-tabela[1]*tabela[2])/
       Math.sqrt(
       	(tabela[1]+tabela[3])*
@@ -32,13 +32,13 @@ let correlacao = function(tabela){
       );
 }
 
-let todosOsHobbies = function(Pessoas){
+function todosOsHobbies(Pessoas){
 	costume = [];
-  	for(amostra of Pessoas){
-    	for(habito of amostra.hobbies){
+  	catalogoPessoas.forEach(function(individuo, index, pessoas){
+    	individuo.hobbies.forEach(function(habito){
         	if (!costume.includes(habito)) costume.push(habito);
-        }
-    }
+        });
+    });
   	return costume;
 }
 
