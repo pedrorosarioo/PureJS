@@ -28,7 +28,7 @@ function getMaior(compet1,compet2){
 };
 
 function encontraReprovado(competidores){
-  	var i=0, reprovado = competidores[0];
+  	var reprovado = competidores[0];
       competidores.forEach((item)=>{
         if (reprovado.exc>item.exc) reprovado = item;
         else if (reprovado.exc==item.exc) reprovado = getMaior(reprovado,item);
